@@ -48,13 +48,13 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required|min:6'
+            'codigo' => 'required|numeric|min:1|max:99999999',
+            'password' => 'required'
         ]);
 
         $credential = [
-            'email' => $request->email,
-            'password' => $request->password
+            'codigo' => $request->codigo,
+            'password' => $request->password,
         ];
 
         // Attempt to log the user in

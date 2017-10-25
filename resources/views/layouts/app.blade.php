@@ -44,7 +44,9 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
+                            @if(Request::segment(1) !="admin")
                             <li><a href="{{ route('register') }}">Register</a></li>
+                            @endif
                         @else
                             @if(Auth::guard('admin')->check())
                                 <li class="dropdown">
