@@ -19,8 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::post('/user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+Route::post('/user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
+Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.home');
